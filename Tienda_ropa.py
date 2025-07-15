@@ -66,3 +66,21 @@ elif opcion == "3":
     for producto in productos.values():
         costo += producto['precio'] * producto['cantidad']
     print(f"El costo del inventario es de: {costo:.2f}")
+elif opcion == "4":
+    print("---Mostrar productos (por categoría)---")
+    busqueda = input("Ingrese la categoria del producto: ")
+    bandera = False
+    for codigo, buscar in productos.items():
+        if buscar["categoria"].lower() == buscar.lower():
+            if not bandera:
+                print(f"***Productos en la categoría {buscar}:***")
+            print(f"Código: {codigo}")
+            print(f"Nombre: {buscar['nombre']}")
+            print(f"Categoria: {buscar['categoria']}")
+            print(f"Talla: {buscar['talla']}")
+            print(f"Precio: {buscar['precio']}")
+            print(f"Cantidad: {buscar['cantidad']}")
+            bandera = True
+    if not bandera:
+        print("No se encontró nigun producto de esta categoría")
+
