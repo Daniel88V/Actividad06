@@ -1,6 +1,6 @@
 productos = {}
 print("Bienvenido a la tienda de ropa")
-print("Cuantos productos desea ingresar?")
+print("¿Cuántos productos desea ingresar? ")
 cantidad = int(input())
 for i in range(cantidad):
     print(f"Producto {i+1}")
@@ -23,8 +23,8 @@ for i in range(cantidad):
         except ValueError:
             print("Por favor ingrese un número valido")
     while True:
-        cantidad = int(input(f"Ingrese la cantidad del producto: "))
-        if cantidad > 0:
+        existencias = int(input(f"Ingrese la cantidad del producto: "))
+        if existencias > 0:
             break
         else:
             print("Error, por favor ingrese una cantidad mayor a 0")
@@ -33,5 +33,26 @@ for i in range(cantidad):
         "categoria": categoria,
         "talla": talla,
         "precio": precio,
-        "cantidad": cantidad,
+        "cantidad": existencias,
     }
+print("¿Desea realizar alguna de las siguientes acciones: ?")
+print("1. Mostrar lista de productos")
+print("2. Buscar producto")
+print("3. Calcular coste de inventario")
+print("4. Mostrar productos por categoría")
+print("5. Salir")
+opcion = input()
+if opcion == "1":
+    print("---Lista de productos---")
+    for codigo, datos in productos.items():
+        print(f"Codigo: {codigo}")
+        print(f"Nombre: {datos['nombre']}")
+        print(f"Categoría: {datos['categoria']}")
+        print(f"Talla: {datos['talla']}")
+        print(f"Precio: {datos['precio']}")
+        print(f"Cantidad: {datos['cantidad']}")
+elif opcion == "2":
+    print("---Buscar producto---")
+    objeto = input("Ingrese el codigo del producto: ")
+    if objeto in productos:
+        print("")
