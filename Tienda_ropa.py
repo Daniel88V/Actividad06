@@ -49,7 +49,7 @@ if opcion == "1":
         print(f"Nombre: {datos['nombre']}")
         print(f"Categoría: {datos['categoria']}")
         print(f"Talla: {datos['talla']}")
-        print(f"Precio: {datos['precio']}")
+        print(f"Precio: Q.{datos['precio']:.2f}")
         print(f"Cantidad: {datos['cantidad']}")
 elif opcion == "2":
     print("---Buscar producto---")
@@ -58,23 +58,22 @@ elif opcion == "2":
         print(f"Nombre: {productos[objeto]['nombre']}")
         print(f"Categoria: {productos[objeto]['categoria']}")
         print(f"Talla: {productos[objeto]['talla']}")
-        print(f"Precio: {productos[objeto]['precio']}")
+        print(f"Precio: Q.{productos[objeto]['precio']:.2f}")
         print(f"Cantidad: {productos[objeto]['cantidad']}")
 elif opcion == "3":
     costo = 0
     print("---Coste de inventario---")
     for producto in productos.values():
         costo += producto['precio'] * producto['cantidad']
-    print(f"El costo del inventario es de: {costo:.2f}")
+    print(f"El costo del inventario es de: Q.{costo:.2f}")
 elif opcion == "4":
     print("---Mostrar productos (por categoría)---")
     busqueda = input("Ingrese la categoria del producto: ")
     bandera = False
     for codigo, buscar in productos.items():
-        if buscar["categoria"].lower() == buscar.lower():
+        if buscar["categoria"].lower() == busqueda.lower():
             if not bandera:
-                print(f"***Productos en la categoría {buscar}:***")
-            print(f"Código: {codigo}")
+                print(f"***Productos en la categoría {busqueda}: ***")
             print(f"Nombre: {buscar['nombre']}")
             print(f"Categoria: {buscar['categoria']}")
             print(f"Talla: {buscar['talla']}")
@@ -83,4 +82,6 @@ elif opcion == "4":
             bandera = True
     if not bandera:
         print("No se encontró nigun producto de esta categoría")
-
+elif opcion == "5":
+    print("Saliendo...")
+    exit()
