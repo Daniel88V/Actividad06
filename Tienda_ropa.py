@@ -55,4 +55,14 @@ elif opcion == "2":
     print("---Buscar producto---")
     objeto = input("Ingrese el codigo del producto: ")
     if objeto in productos:
-        print("")
+        print(f"Nombre: {productos[objeto]['nombre']}")
+        print(f"Categoria: {productos[objeto]['categoria']}")
+        print(f"Talla: {productos[objeto]['talla']}")
+        print(f"Precio: {productos[objeto]['precio']}")
+        print(f"Cantidad: {productos[objeto]['cantidad']}")
+elif opcion == "3":
+    costo = 0
+    print("---Coste de inventario---")
+    for producto in productos.values():
+        costo += producto['precio'] * producto['cantidad']
+    print(f"El costo del inventario es de: {costo:.2f}")
