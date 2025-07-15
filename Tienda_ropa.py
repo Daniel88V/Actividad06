@@ -13,9 +13,21 @@ for i in range(cantidad):
     nombre = input(f"Ingrese el nombre del producto: ")
     categoria = input(f"Ingrese la categoria del producto: ")
     talla =input(f"Ingrese la talla del producto: ")
-
-    precio = float(input(f"Ingrese el precio del producto: "))
-    cantidad = int(input(f"Ingrese la cantidad del producto: "))
+    while True:
+        try:
+            precio = float(input(f"Ingrese el precio del producto: "))
+            if precio > 0:
+                break
+            else:
+                print("Error, por favor ingrese un precio mayor a 0")
+        except ValueError:
+            print("Por favor ingrese un número valido")
+    while True:
+        cantidad = int(input(f"Ingrese la cantidad del producto: "))
+        if cantidad > 0:
+            break
+        else:
+            print("Error, por favor ingrese una cantidad mayor a 0")
     productos[codigo] = {
         "nombre": nombre,
         "categoria": categoria,
